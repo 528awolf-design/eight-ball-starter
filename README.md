@@ -1,4 +1,4 @@
-# Theme Name: Magic 8 Ball
+# Magic 8 Ball
 
 ## Project Overview
 
