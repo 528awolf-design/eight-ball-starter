@@ -162,6 +162,9 @@ body {
 .no {
   background: #c62828;
 }
+.no-question {
+  background: #ffffff;
+}
 
 /* ---------- Footer ---------- */
 .site-footer {

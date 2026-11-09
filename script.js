@@ -31,18 +31,64 @@ if (userName === '') {
 }
 document.getElementById("greeting").textContent = greeting
 
+// get random number
+let randomNumber = Math.floor(Math.random() * 8)
+
 // check question
 if (userQuestion === '') {
+  randomNumber = 8
   document.getElementById('questionOut').textContent = ''
   document.getElementById('answer').textContent = 'Maybe put in a question this time?'
   document.getElementById('answerType').innerHTML = ''
 }
-
-// get random number
-
+if (randomNumber === 8) {
+ document.getElementById('answer').textContent = 'Maybe put in a question this time?'
+}
 
 // get 8 ball answer
-
-
+switch (randomNumber) {
+  case 0:
+    document.getElementById('answer').textContent = 'Without a doubt.'
+  break;
+  case 1:
+    document.getElementById('answer').textContent = 'As I see it, yes.'
+  break;
+  case 2:
+    document.getElementById('answer').textContent = 'Outlook good.'
+  break;
+  case 3:
+    document.getElementById('answer').textContent = 'I doubt it.'
+  break;
+  case 4:
+    document.getElementById('answer').textContent = 'My reply is no.'
+  break;
+  case 5:
+    document.getElementById('answer').textContent = 'I wouldn\'t do that if I were you...'
+  break;
+  case 6:
+    document.getElementById('answer').textContent = 'Cannot predict now.'
+  break;
+  case 7:
+    document.getElementById('answer').textContent = 'Click again?'
+  break;
+}
+// badge answer variables
+let yes = document.getElementById('answerType').value
+let maybe = document.getElementById('answerType').value
+let noQuestion = document.getElementById('answerType').value
+let no = document.getElementById('answerType').value
 // show 8 ball answer type badge
+if (randomNumber <=2) {
+  document.getElementById('answerType').textContent = 'Yes'
+  document.getElementById('answerType').innerHTML = yes
+} else if (randomNumber >= 6 && randomNumber <= 7) {
+  document.getElementById('answerType').textContent = 'Maybe'
+  document.getElementById('answerType').innerHTML = maybe
+} else if (randomNumber >= 8) {
+  document.getElementById('answerType').textContent = '???'
+  document.getElementById('answerType').innerHTML = noQuestion
+} else if (randomNumber >= 3 && randomNumber <= 5) {
+  document.getElementById('answerType').textContent = 'No'
+  document.getElementById('answerType').innerHTML = no
+}
 }
