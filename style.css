@@ -1,173 +1,359 @@
-/* ==========================================
-   Magic 8 Ball: starter styles
-   Change these colors and fonts to match your theme.
-   ========================================== */
-
 :root {
-  --brand: #3b2a6b;        /* navbar, hero, button */
-  --brand-light: #ece8f6;  /* page background */
-  --accent: #f4b942;       /* step numbers, highlights */
-  --text: #1f1d2b;
-  --font: "Poppins", Arial, sans-serif;
+  --page-bg: #f1f1f1;
+  --panel-bg: #d8d8d8;
+  --field-bg: #f1f1f1;
+  --gold: #c9a62d;
+  --gold-border: #c4a020;
+  --ink: #101010;
+  --orb-light: #f2d13d;
+  --orb-dark: #caa91d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
 }
 
 body {
-  font-family: var(--font);
-  background: var(--brand-light);
-  color: var(--text);
+  background: var(--page-bg);
+  color: var(--ink);
+  font-family: "Libre Baskerville", Georgia, serif;
 }
 
-/* ---------- Navbar ---------- */
-.site-nav {
-  background: var(--brand);
+.page-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.site-nav .navbar-brand {
-  color: #fff;
-  font-weight: 700;
+.masthead {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 5px 16px;
+  background: var(--panel-bg);
+  border-bottom: 2px solid var(--gold-border);
 }
 
-.nav-tagline {
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 0.9rem;
+.masthead h1 {
+  margin: 0;
+  color: var(--gold);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1;
 }
 
-/* ---------- Hero ---------- */
-.hero {
-  background: var(--brand);
-  color: #fff;
-  padding: 3rem 0 4rem;
+.game-board {
+  width: min(1100px, calc(100% - 44px));
+  margin: 24px auto 0;
+  flex: 1;
 }
 
-.hero h1 {
-  font-weight: 700;
+.question-grid {
+  display: grid;
+  grid-template-columns: minmax(180px, 200px) minmax(0, 1fr) minmax(180px, 200px);
+  align-items: start;
+  gap: 14px;
 }
 
-/* ---------- How It Works ---------- */
-.section-title {
-  font-weight: 600;
+.input-column {
+  min-width: 0;
 }
 
-.step-card {
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+.panel,
+.how-it-works {
+  background: var(--panel-bg);
+  border-radius: 6px;
 }
 
-.step-number {
-  display: inline-flex;
+.panel {
+  padding: 13px 22px 17px;
+}
+
+.input-panel {
+  min-height: 321px;
+}
+
+.field-label {
+  display: block;
+  margin: 0 0 6px;
+  color: var(--gold);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1.05;
+  text-align: center;
+}
+
+.text-field,
+.display-box {
+  width: 100%;
+  min-height: 102px;
+  margin: 0 0 12px;
+  padding: 10px;
+  border: 1px solid var(--gold-border);
+  border-radius: 6px;
+  background: var(--field-bg);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.text-field {
+  display: block;
+  margin-inline: auto;
+  outline: none;
+  text-align: center;
+}
+
+.question-field {
+  resize: none;
+  padding-top: 39px;
+}
+
+.text-field:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px rgba(201, 166, 45, 0.2);
+}
+
+.left-column .text-field:last-child {
+  margin-bottom: 0;
+}
+
+.result-panel {
+  min-height: 239px;
+  margin-top: 41px;
+}
+
+.result-panel .field-label {
+  margin-bottom: 6px;
+}
+
+.display-box {
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--accent);
-  color: var(--text);
-  font-weight: 700;
+  overflow-wrap: anywhere;
+  text-align: center;
 }
 
-/* ---------- Main cards ---------- */
-.main-card {
-  border: none;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+.type-box {
+  min-height: 32px;
+  margin-bottom: 0;
+  padding: 3px 8px;
 }
 
-.form-label {
-  font-weight: 600;
+.orb-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.btn-ask {
-  background: var(--brand);
-  color: #fff;
-  font-weight: 600;
-  padding: 0.75rem;
-  border-radius: 10px;
+.greeting,
+.question-out {
+  margin: 0;
+  color: var(--gold);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
 }
 
-.btn-ask:hover,
-.btn-ask:focus-visible {
-  background: var(--accent);
-  color: var(--text);
-}
-
-.btn-ask:active,
-.btn-ask:focus {
-  background: var(--brand);
-  color: #fff;
-}
-
-/* ---------- Results ---------- */
 .greeting {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 0.25rem;
+  font-size: clamp(1.45rem, 2.8vw, 1.8rem);
+  line-height: 1.1;
 }
 
 .question-out {
-  min-height: 1.5rem;
-  color: #555;
+  min-height: 30px;
+  font-size: 1.1rem;
+  line-height: 1.3;
 }
 
-.ball {
-  width: 240px;
-  height: 240px;
-  margin: 1.5rem auto 0;
+#askButton {
+  width: min(148px, 70%);
+  min-height: 27px;
+  margin: 0 0 7px;
+  padding: 1px 12px 3px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--panel-bg);
+  color: var(--gold);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+#askButton:hover,
+#askButton:focus-visible {
+  background: #cecece;
+}
+
+#askButton:focus-visible {
+  outline: 2px solid var(--gold-border);
+  outline-offset: 2px;
+}
+
+.orb {
+  position: relative;
+  width: min(100%, 212px);
+  aspect-ratio: 1;
+  overflow: hidden;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #4a4a4a, #111 65%);
+  background: radial-gradient(circle at 30% 25%, var(--orb-light) 0%, #dfbf26 58%, var(--orb-dark) 100%);
+  box-shadow: none;
+}
+
+.face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: #000;
+}
+
+.face path {
+  fill: none;
+  stroke: #000;
+  stroke-linecap: round;
+  stroke-width: 18;
+}
+
+.how-it-works {
+  width: min(86%, 820px);
+  margin: 68px auto 58px;
+  padding: 8px 20px 22px;
+}
+
+.how-it-works h2 {
+  margin: 0 0 4px;
+  color: var(--gold);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  font-weight: 500;
+  text-align: center;
+}
+
+.step-row {
+  margin-bottom: 10px;
+}
+
+.step-row:last-child {
+  margin-bottom: 0;
+}
+
+.step-number {
+  display: block;
+  margin: 0 0 1px 14px;
+  color: var(--gold);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.step-box {
+  min-height: 47px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  padding: 8px 14px;
+  border: 1px solid var(--gold-border);
+  border-radius: 6px;
+  background: var(--field-bg);
+  color: var(--ink);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: center;
 }
 
-.window {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  background: #1b2a6b;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px;
-}
-
-.answer {
-  margin: 0;
-  color: #fff;
-  font-weight: 600;
-  font-size: 0.95rem;
-  line-height: 1.25;
-}
-
-/* ---------- Answer type badges ----------
-   Your innerHTML can use these classes. */
-.answer-type span {
-  display: inline-block;
-  padding: 0.4rem 1.25rem;
-  border-radius: 999px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: #fff;
-}
-
-.yes {
-  background: #2e7d32;
-}
-
-.maybe {
-  background: #b26a00;
-}
-
-.no {
-  background: #c62828;
-}
-.no-question {
-  background: #ffffff;
-}
-
-/* ---------- Footer ---------- */
 .site-footer {
-  background: var(--brand);
-  color: rgba(255, 255, 255, 0.8);
+  min-height: 58px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 20px;
+  background: var(--panel-bg);
+  color: var(--gold);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+#answerType {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.answer-type {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.answer-type.yes {
+  color: #387c41;
+}
+
+.answer-type.maybe {
+  color: #a17b08;
+}
+
+.answer-type.no {
+  color: #a33b37;
+}
+
+@media (max-width: 720px) {
+  .game-board {
+    width: min(100% - 32px, 480px);
+    margin-top: 20px;
+  }
+
+  .question-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .orb-column {
+    grid-row: 1;
+  }
+
+  .orb {
+    width: min(60vw, 212px);
+  }
+
+  .input-panel,
+  .result-panel {
+    padding-inline: 20px;
+  }
+
+  .result-panel {
+    margin-top: 0;
+  }
+
+  .how-it-works {
+    width: 100%;
+    margin: 30px auto;
+  }
 }

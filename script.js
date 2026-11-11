@@ -51,7 +51,7 @@ switch (randomNumber) {
     document.getElementById('answer').textContent = 'Without a doubt.'
   break;
   case 1:
-    document.getElementById('answer').textContent = 'As I see it, yes.'
+    document.getElementById('answer').textContent = 'I would!'
   break;
   case 2:
     document.getElementById('answer').textContent = 'Outlook good.'

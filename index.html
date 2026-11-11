@@ -6,110 +6,71 @@
   <title>Magic 8 Ball</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="page-shell">
+    <header class="masthead">
+      <h1>MAGIC 8 BALL</h1>
+    </header>
 
-  <!-- ============ NAVBAR ============ -->
-  <nav class="navbar site-nav">
-    <div class="container">
-      <a class="navbar-brand" href="#">Magic 8 Ball</a>
-      <span class="nav-tagline d-none d-sm-inline">Ask anything. Trust the ball.</span>
-    </div>
-  </nav>
+    <main class="game-board">
+      <div class="question-grid">
+        <div class="input-column left-column">
+          <div class="panel input-panel">
+            <label class="field-label" for="nameInput">Name:</label>
+            <input id="nameInput" class="text-field" type="text" aria-label="Name">
 
-  <!-- ============ HERO ============ -->
-  <header class="hero text-center">
-    <div class="container">
-      <h1 class="display-5">Ask the Magic 8 Ball</h1>
-      <p class="lead mb-0">Type a yes-or-no question and let the 8 Ball decide.</p>
-    </div>
-  </header>
-
-  <main class="container py-5">
-
-    <!-- ============ HOW IT WORKS ============ -->
-    <section class="mb-5">
-      <h2 class="section-title text-center mb-4">How It Works</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="card step-card h-100">
-            <div class="card-body">
-              <span class="step-number">1</span>
-              <h3 class="h5 mt-3">Enter your name</h3>
-              <p class="mb-0">Placeholder text. Explain this step for your users.</p>
-            </div>
+            <label class="field-label" for="questionInput">Question:</label>
+            <textarea id="questionInput" class="text-field question-field" aria-label="Question"></textarea>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card step-card h-100">
-            <div class="card-body">
-              <span class="step-number">2</span>
-              <h3 class="h5 mt-3">Ask a question</h3>
-              <p class="mb-0">Placeholder text. Explain this step for your users.</p>
-            </div>
+
+        <div class="orb-column">
+          <p id="greeting" class="greeting">Hello, userName!</p>
+          <p id="questionOut" class="question-out">You asked: question</p>
+          <button type="button" id="askButton" onclick="askEightBall()">Ask Away!</button>
+          <div class="orb" aria-hidden="true">
+            <svg class="face" viewBox="0 0 300 300" aria-hidden="true">
+              <ellipse cx="92" cy="94" rx="18" ry="36"></ellipse>
+              <ellipse cx="208" cy="94" rx="18" ry="36"></ellipse>
+              <path d="M75 177 Q150 298 225 177"></path>
+            </svg>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card step-card h-100">
-            <div class="card-body">
-              <span class="step-number">3</span>
-              <h3 class="h5 mt-3">Get your answer</h3>
-              <p class="mb-0">Placeholder text. Explain this step for your users.</p>
-            </div>
+
+        <div class="input-column right-column">
+          <div class="panel result-panel">
+            <p class="field-label">Answer:</p>
+            <div id="answer" class="display-box" aria-label="Answer" aria-live="polite"></div>
+
+            <p class="field-label">Type:</p>
+            <div id="answerType" class="display-box type-box" aria-label="Answer type" aria-live="polite"></div>
           </div>
         </div>
       </div>
-    </section>
 
-    <div class="row g-4">
-
-      <!-- ============ QUESTION FORM ============ -->
-      <section class="col-lg-5">
-        <div class="card main-card h-100">
-          <div class="card-body p-4">
-            <h2 class="h4 mb-4">Your Question</h2>
-
-            <label for="nameInput" class="form-label">Your name</label>
-            <input type="text" id="nameInput" class="form-control mb-3" placeholder="Aaron, etc">
-
-            <label for="questionInput" class="form-label">Your yes-or-no question</label>
-            <input type="text" id="questionInput" class="form-control mb-4" placeholder="Will I pass my test?, etc">
-
-            <button type="button" id="askButton" onclick="askEightBall()" class="btn btn-ask w-100">Ask the 8 Ball</button>
-          </div>
+      <section class="how-it-works" aria-label="How it works">
+        <h2>How it Works:</h2>
+        <div class="step-row">
+          <span class="step-number">1</span>
+          <div class="step-box text-center">Enter your name in the Name box.</div>
+        </div>
+        <div class="step-row">
+          <span class="step-number">2</span>
+          <div class="step-box text-center">Type a yes-or-no question in the Question box.</div>
+        </div>
+        <div class="step-row">
+          <span class="step-number">3</span>
+          <div class="step-box text-center">Read the answer and type shown beside the Magic 8 Ball.</div>
         </div>
       </section>
+    </main>
 
-      <!-- ============ RESULTS ============ -->
-      <section id="results" class="col-lg-7">
-        <div class="card main-card h-100">
-          <div class="card-body p-4 text-center">
-            <p id="greeting" class="greeting">Hello!</p>
-            <p id="questionOut" class="question-out">Your question will appear here.</p>
+    <footer class="site-footer">Aaron Wolf, 2026</footer>
 
-            <div class="ball">
-              <div class="window">
-                <p id="answer" class="answer">8</p>
-              </div>
-            </div>
-
-            <div id="answerType" class="answer-type mt-4 yes no maybe noQuestion"></div>
-          </div>
-        </div>
-      </section>
-
-    </div>
-  </main>
-
-  <!-- ============ FOOTER ============ -->
-  <footer class="site-footer py-4 text-center">
-    <div class="container">
-      <p class="m-0">Created by Your Name</p>
-    </div>
-  </footer>
+  </div>
 
   <script src="script.js"></script>
 </body>
