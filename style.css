@@ -44,6 +44,7 @@ body {
 .masthead h1 {
   margin: 0;
   color: var(--gold);
+  text-shadow: 0 1px 1px rgba(80, 60, 0, 0.18);
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: clamp(2.2rem, 4vw, 3.2rem);
   font-weight: 500;
@@ -86,6 +87,7 @@ body {
   display: block;
   margin: 0 0 6px;
   color: var(--gold);
+  text-shadow: 0 1px 1px rgba(80, 60, 0, 0.18);
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: clamp(1.35rem, 2vw, 1.75rem);
   font-weight: 500;
@@ -163,6 +165,7 @@ body {
 .question-out {
   margin: 0;
   color: var(--gold);
+  text-shadow: 0 1px 1px rgba(80, 60, 0, 0.18);
   font-family: "Cormorant Garamond", Georgia, serif;
   font-weight: 500;
 }
@@ -187,6 +190,7 @@ body {
   border-radius: 6px;
   background: var(--panel-bg);
   color: var(--gold);
+  text-shadow: 0 1px 1px rgba(80, 60, 0, 0.18);
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 1.3rem;
   line-height: 1;
@@ -237,6 +241,7 @@ body {
 .how-it-works h2 {
   margin: 0 0 4px;
   color: var(--gold);
+  text-shadow: 0 1px 1px rgba(80, 60, 0, 0.18);
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: clamp(1.8rem, 3vw, 2.2rem);
   font-weight: 500;
@@ -255,6 +260,7 @@ body {
   display: block;
   margin: 0 0 1px 14px;
   color: var(--gold);
+  text-shadow: 0 1px 1px rgba(80, 60, 0, 0.18);
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 1.2rem;
   line-height: 1;
@@ -283,6 +289,7 @@ body {
   padding: 12px 20px;
   background: var(--panel-bg);
   color: var(--gold);
+  text-shadow: 0 1px 1px rgba(80, 60, 0, 0.18);
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 0.95rem;
   letter-spacing: 0.12em;

@@ -25,7 +25,7 @@ document.getElementById("questionOut").textContent = 'You asked: ' + userQuestio
 // greet the user
 let greeting
 if (userName === '') {
-  greeting = "Hello Random Person!"
+  greeting = "Hello, Random Person!"
 } else {
   greeting = `Hello, ${userName}!`
 }
@@ -40,9 +40,8 @@ if (userQuestion === '') {
   document.getElementById('questionOut').textContent = ''
   document.getElementById('answer').textContent = 'Maybe put in a question this time?'
   document.getElementById('answerType').innerHTML = ''
-}
-if (randomNumber === 8) {
- document.getElementById('answer').textContent = 'Maybe put in a question this time?'
+  document.getElementById('answerType').textContent = '???'
+  document.getElementById('answerType').innerHTML = noQuestion
 }
 
 // get 8 ball answer
